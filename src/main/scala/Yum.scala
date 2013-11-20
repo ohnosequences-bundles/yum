@@ -1,10 +1,10 @@
-package ohnosequences.statika
+package ohnosequences.statika.bundles
 
 import ohnosequences.statika._
 
 abstract class YumBundle(packageName: String) extends Bundle() {
 
-  def install[D <: AnyDistribution](d: D): InstallResults =
+  override def install[D <: AnyDistribution](d: D): InstallResults =
     Seq("yum", "install", "-y", packageName) ->- success(name + " is installed")
 
 }
